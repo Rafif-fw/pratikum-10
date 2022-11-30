@@ -5,16 +5,24 @@ Created on Wed Nov 30 20:04:20 2022
 @author: Rafif Fernanda
 """
 
-def insertion_sort(array):
-    # perulangan pertama 
-    for i in range(1, len(array)):
-        key_item = array[i]
-        j = i - 1
-        while j >= 0 and array[j] > key_item:
-            array[j + 1] = array[j]
-            j -= 1
-        array[j + 1] = key_item
-
-    return array
-unordered = [91, 21, 37, 77, 82]
-print(insertion_sort(unordered))
+def bubbleSort(arr):
+    n = len(arr)
+    swapped = False
+    for i in range(n-1):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j + 1]:
+                swapped = True
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+         
+        if not swapped:
+            return
+ 
+ 
+# Driver code to test above
+arr = [64, 34, 25, 12, 22, 11, 90]
+ 
+bubbleSort(arr)
+ 
+print("list yang sudah di sorting:")
+for i in range(len(arr)):
+    print("% d" % arr[i], end=" ")
